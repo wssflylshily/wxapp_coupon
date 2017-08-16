@@ -1,0 +1,24 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:U('User/userinfo')}">修改半径范围</a></li>
+    </ul>
+    <form class="form-horizontal js-ajax-form" method="post" action="{:U('setting/radius')}">
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label">设置半径/千米</label>
+                <div class="controls">
+                    <input type="text" class="input-xlarge" value="{$rs}" name="radius">
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary  js-ajax-submit">{:L('SAVE')}</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

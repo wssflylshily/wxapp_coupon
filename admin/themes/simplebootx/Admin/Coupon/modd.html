@@ -1,0 +1,45 @@
+<admintpl file="header"/>
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('Category/index')}">分类列表</a></li>
+			<li class="active"><a href="">修改分类</a></li>
+		</ul>
+		<form class="form-horizontal js-ajax-form" action="__CONTROLLER__/mod" method="post" enctype="multipart/form-data">
+			<fieldset>
+				<input type="hidden" value="{$list['id']}" name="id">
+				<input type="hidden" value="{$_GET['pid']}" name="pid">
+				<div class="control-group">
+					<label class="control-label">修改分类名称</label>
+					<div class="controls">
+						<input type="text" name="cname" value="{$list['cname']}" id="rolename"/>
+						<span class="form-required">*</span>
+					</div>
+				</div>
+				<?php if($_GET['pid']==0){ ?>
+					<div class="control-group">
+						<label class="control-label">分类图标</label>
+						<div class="controls">
+							<input type="file" name="icon_url">
+							<img src="__ROOT__{$list['icon_url']}" height="50" width="50">
+						</div>
+					</div>
+				<?php } ?>
+				<div class="control-group">
+					<label class="control-label">{:L('STATUS')}</label>
+					<div class="controls">
+						<label class="radio inline" for="active_true"><input type="radio" name="status" value="1" <?php if($list["status"]=='1'){ echo "checked=checked"; } ?> id="active_true" />{:L('ENABLED')}</label>
+						<label class="radio inline" for="active_false"><input type="radio" name="status" value="0" <?php if($list["status"]=='0'){ echo "checked=checked"; } ?> id="active_false">{:L('DISABLED')}</label>
+					</div>
+				</div>
+			</fieldset>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary ">修改</button>
+				<a class="btn" href="javascript:history.back(-1);">{:L('BACK')}</a>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

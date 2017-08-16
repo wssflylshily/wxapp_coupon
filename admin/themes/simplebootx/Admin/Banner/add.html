@@ -1,0 +1,36 @@
+<admintpl file="header"/>
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('Banner/index')}">首页轮播图列表</a></li>
+			<li class="active"><a href="{:U('Banner/add')}">添加轮播图</a></li>
+		</ul>
+		<form class="form-horizontal js-ajax-form" action="__CONTROLLER__/add" method="post" enctype="multipart/form-data">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label">添加首页轮播图</label>
+
+				</div>
+				<div class="control-group">
+					<label class="control-label">图片</label>
+					<div class="controls">
+						<input type="file" name="img">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">跳转地址</label>
+					<div class="controls">
+						<input type="text" name="url" value="" id="rolename"/>
+					</div>
+				</div>
+			</fieldset>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary js-ajax-submit">{:L('ADD')}</button><!--  -->
+				<a class="btn" href="javascript:history.back(-1);">{:L('BACK')}</a>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

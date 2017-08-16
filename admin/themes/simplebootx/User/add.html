@@ -1,0 +1,65 @@
+<admintpl file="header" />
+</head>
+<script language="javascript" type="text/javascript">  
+	function checkMobile(str){  
+	    if(str==""){
+	        alert("手机号不能为空！");
+	        return false;
+	    }else{
+	        var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+			if(!myreg.test($("#phone").val())){
+		    	alert('请输入有效的手机号码！');
+		    	return false;
+			}
+	    }
+	}
+</script>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('Indexadmin/index')}">{:L('USER_INDEXADMIN_INDEX')}</a></li>
+			<li class="active"><a href="{:U('Indexadmin/add')}">添加用户</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form" onsubmit="return checkMobile(this)" enctype="multipart/form-data" action="{:U('Indexadmin/insertu')}">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label">{:L('USERNAME')}(手机号)</label>
+					<div class="controls">
+						<input type="text" name="phone" id="phone" maxlength="11">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">{:L('PASSWORD')}</label>
+					<div class="controls">
+						<input type="password" name="password">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">姓名</label>
+					<div class="controls">
+						<input type="text" name="nickname">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">头像</label>
+					<div class="controls">
+						<input type="file" name="img">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">{:L('STATUS')}</label>
+					<div class="controls">
+						<label class="radio inline" for="active_true"><input type="radio" name="status" value="1" checked id="active_true" />{:L('ENABLED')}</label>
+						<label class="radio inline" for="active_false"><input type="radio" name="status" value="0" id="active_false">{:L('DISABLED')}</label>
+					</div>
+				</div>
+			</fieldset>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary">{:L('ADD')}</button>
+				<a class="btn" href="javascript:history.back(-1);">{:L('BACK')}</a>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>
